@@ -1,8 +1,8 @@
-# n8n on Railway (with custom npm packages)
+# n8n on Railway (with custom npm packages + media tools)
 
 Run your own automation workflows with [n8n](https://n8n.io/) using Railway's simple deployment setup.
 
-This repo gives you a containerized version of n8n with a few handy packages pre-installed (like `axios`, `cheerio`, and `moment`) so you can build custom workflows without extra config. It's meant to be quick and hassle-free.
+This repo gives you a containerized version of n8n with a few handy packages pre-installed (like `axios`, `cheerio`, `moment`, `yt-dlp`, and `ffmpeg`) so you can build custom workflows without extra config. It's meant to be quick and hassle-free.
 
 ---
 
@@ -24,11 +24,16 @@ If you're not familiar, n8n is like a low-code Swiss Army knife for automation. 
 
 You'll get these pre-installed in your container:
 
+**Node.js packages:**
 - `axios` — HTTP client for making API calls
 - `cheerio` — jQuery-like HTML parser
 - `moment` — date/time utility
 
-Useful if you're scraping, transforming, or fetching stuff in your workflows.
+**Media tools:**
+- `yt-dlp` — Download videos from YouTube and other platforms
+- `ffmpeg` — Video/audio processing and conversion
+
+Useful if you're scraping, transforming, fetching stuff, or working with media in your workflows.
 
 ---
 
@@ -39,7 +44,7 @@ Here's how to get it running:
 ### 1. Clone this repo
 
 ```bash
-git clone https://github.com/maneja81/n8n-railway.git
+git clone https://github.com/merijnkok959595/n8n-railway.git
 cd n8n-railway
 ```
 
