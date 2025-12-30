@@ -30,10 +30,10 @@ You'll get these pre-installed in your container:
 - `moment` — date/time utility
 
 **Media tools:**
-- `yt-dlp` — Download videos from YouTube and other platforms
+- `yt-dlp` — Download videos from YouTube and 1000+ other platforms
 - `ffmpeg` — Video/audio processing and conversion
 
-Useful if you're scraping, transforming, fetching stuff, or working with media in your workflows.
+Perfect for video scraping, processing, and upload workflows.
 
 ---
 
