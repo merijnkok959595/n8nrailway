@@ -1,20 +1,38 @@
-FROM n8nio/n8n:latest
+FROM node:18-bullseye-slim
 
 USER root
 
-# Install ffmpeg and Python for yt-dlp (Alpine Linux uses apk)
-RUN apk add --no-cache \
+# Install system packages
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     ffmpeg \
     python3 \
-    py3-pip && \
-    pip3 install --break-system-packages yt-dlp
+    python3-pip \
+    curl \
+    wget \
+    ca-certificates \
+    git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Verify installations
-RUN yt-dlp --version && ffmpeg -version
+# Install yt-dlp
+RUN pip3 install yt-dlp
 
-WORKDIR /data
+# Install n8n globally
+RUN npm install -g n8n@latest
 
-# Install custom npm packages
-RUN npm install cheerio axios moment
+# Create working directory
+RUN mkdir -p /home/node/.n8n && \
+    chown -R node:node /home/node
 
 USER node
+
+WORKDIR /home/node
+
+EXPOSE 5678
+
+ENV N8N_PORT=5678
+ENV N8N_PROTOCOL=http
+ENV NODE_ENV=production
+
+CMD ["n8n", "start"]
