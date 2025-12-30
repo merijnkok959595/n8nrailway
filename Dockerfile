@@ -37,6 +37,7 @@ WORKDIR /home/node
 EXPOSE 5678
 
 ENV N8N_PORT=5678
+ENV NODES_EXCLUDE="[]"
 
 ENTRYPOINT ["tini", "--"]
 CMD ["n8n", "start"]
