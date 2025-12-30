@@ -1,4 +1,4 @@
-# n8n on Railway (with custom npm packages + media tools)
+# n8n on Railway (Official n8n + ffmpeg + yt-dlp)
 
 Run your own automation workflows with [n8n](https://n8n.io/) using Railway's simple deployment setup.
 
